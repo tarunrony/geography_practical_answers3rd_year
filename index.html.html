@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ভূগোল ও পরিবেশ – ব্যবহারিক পরীক্ষার উত্তরমালা</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Bengali:wght@400;600;700&family=Noto+Sans+Bengali:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a2e;
+    --deep: #16213e;
+    --accent: #c8a96e;
+    --accent2: #e8c99e;
+    --paper: #fdf6ec;
+    --paper2: #f5ede0;
+    --rule: #d4b896;
+    --muted: #7a6652;
+    --highlight: #4a7c59;
+    --red: #8b2e2e;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Noto Sans Bengali', sans-serif;
+    font-size: 15px;
+    line-height: 1.9;
+    padding: 0;
+  }
+
+  /* ─── COVER ─── */
+  .cover {
+    background: var(--deep);
+    color: #f0e6d3;
+    text-align: center;
+    padding: 56px 32px 48px;
+    position: relative;
+    overflow: hidden;
+  }
+  .cover::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 40px,
+      rgba(200,169,110,0.04) 40px,
+      rgba(200,169,110,0.04) 41px
+    );
+  }
+  .cover-badge {
+    display: inline-block;
+    border: 1.5px solid var(--accent);
+    color: var(--accent);
+    font-size: 11px;
+    letter-spacing: 2px;
+    padding: 5px 18px;
+    border-radius: 2px;
+    margin-bottom: 22px;
+    text-transform: uppercase;
+  }
+  .cover h1 {
+    font-family: 'Noto Serif Bengali', serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: #f5e6cc;
+    line-height: 1.5;
+    margin-bottom: 10px;
+  }
+  .cover h2 {
+    font-size: 14px;
+    font-weight: 400;
+    color: #b0a090;
+    margin-bottom: 28px;
+  }
+  .cover-meta {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    flex-wrap: wrap;
+    font-size: 13px;
+    color: #a09080;
+    border-top: 1px solid rgba(200,169,110,0.3);
+    padding-top: 20px;
+    margin-top: 4px;
+  }
+  .cover-meta span strong { color: var(--accent); }
+
+  /* ─── CONTAINER ─── */
+  .container {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 24px 60px;
+  }
+
+  /* ─── YEAR DIVIDER ─── */
+  .year-divider {
+    background: var(--deep);
+    color: var(--accent);
+    font-family: 'Noto Serif Bengali', serif;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 14px 28px;
+    margin: 40px -24px 0;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .year-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(200,169,110,0.35);
+  }
+
+  /* ─── QUESTION BLOCK ─── */
+  .q-block {
+    background: #fff;
+    border: 1px solid #e8ddd0;
+    border-radius: 6px;
+    margin-top: 28px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  }
+
+  .q-header {
+    background: var(--paper2);
+    border-bottom: 2px solid var(--rule);
+    padding: 14px 22px;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+  }
+  .q-num {
+    background: var(--deep);
+    color: var(--accent);
+    font-family: 'Noto Serif Bengali', serif;
+    font-weight: 700;
+    font-size: 14px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .q-text {
+    font-family: 'Noto Serif Bengali', serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--deep);
+    line-height: 1.6;
+  }
+  .q-marks {
+    margin-left: auto;
+    background: var(--highlight);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 12px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+
+  .q-body {
+    padding: 22px 26px;
+  }
+
+  /* ─── ANSWER SECTIONS ─── */
+  .section {
+    margin-bottom: 20px;
+  }
+  .section:last-child { margin-bottom: 0; }
+
+  .section-title {
+    font-family: 'Noto Serif Bengali', serif;
+    font-size: 14.5px;
+    font-weight: 700;
+    color: var(--red);
+    border-left: 3px solid var(--accent);
+    padding-left: 10px;
+    margin-bottom: 10px;
+  }
+
+  p {
+    margin-bottom: 10px;
+    text-align: justify;
+    color: #2a2a2a;
+  }
+
+  .definition-box {
+    background: linear-gradient(135deg, #f0f7f2, #e8f4ec);
+    border: 1px solid #a8d4b4;
+    border-left: 4px solid var(--highlight);
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin: 12px 0;
+    font-style: italic;
+    color: #1a3a26;
+  }
+
+  /* ─── LISTS ─── */
+  .ans-list {
+    list-style: none;
+    padding: 0;
+    margin: 8px 0;
+  }
+  .ans-list li {
+    position: relative;
+    padding-left: 22px;
+    margin-bottom: 8px;
+    color: #2a2a2a;
+  }
+  .ans-list li::before {
+    content: '▶';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-size: 9px;
+    top: 6px;
+  }
+
+  .numbered-list {
+    counter-reset: item;
+    list-style: none;
+    padding: 0;
+    margin: 8px 0;
+  }
+  .numbered-list li {
+    counter-increment: item;
+    position: relative;
+    padding-left: 32px;
+    margin-bottom: 8px;
+    color: #2a2a2a;
+  }
+  .numbered-list li::before {
+    content: counter(item);
+    position: absolute;
+    left: 0;
+    background: var(--deep);
+    color: var(--accent);
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    font-size: 11px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 2px;
+  }
+
+  /* ─── TABLE ─── */
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 14px;
+  }
+  .data-table th {
+    background: var(--deep);
+    color: var(--accent);
+    padding: 10px 14px;
+    text-align: left;
+    font-family: 'Noto Serif Bengali', serif;
+    font-weight: 600;
+    font-size: 13px;
+  }
+  .data-table td {
+    padding: 9px 14px;
+    border-bottom: 1px solid #e8ddd0;
+    color: #2a2a2a;
+  }
+  .data-table tr:nth-child(even) td { background: var(--paper2); }
+  .data-table tr:hover td { background: #ffefd8; }
+  .data-table .pct-bar {
+    height: 8px;
+    background: var(--accent2);
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+    min-width: 60px;
+  }
+  .data-table .pct-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--highlight), var(--accent));
+    border-radius: 4px;
+  }
+
+  /* ─── PIE / BAR CHARTS via SVG ─── */
+  .chart-wrap {
+    display: flex;
+    gap: 28px;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 16px 0;
+  }
+  .chart-wrap svg { flex-shrink: 0; }
+  .legend { flex: 1; min-width: 200px; }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 7px;
+    font-size: 13px;
+    color: #2a2a2a;
+  }
+  .legend-dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 3px;
+    flex-shrink: 0;
+  }
+
+  /* ─── BAR CHART ─── */
+  .bar-chart {
+    margin: 14px 0;
+  }
+  .bar-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+    font-size: 13px;
+  }
+  .bar-label { width: 80px; text-align: right; color: var(--muted); flex-shrink: 0; font-size: 12.5px; }
+  .bar-track { flex: 1; background: #ede3d8; border-radius: 4px; height: 24px; overflow: hidden; }
+  .bar-fill {
+    height: 100%;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #fff;
+    transition: width 0.4s ease;
+  }
+
+  /* ─── IMPORTANT NOTE ─── */
+  .note-box {
+    background: #fff8ee;
+    border: 1px solid #f0d090;
+    border-left: 4px solid var(--accent);
+    border-radius: 4px;
+    padding: 12px 16px;
+    margin: 12px 0;
+    font-size: 13.5px;
+    color: #5a4010;
+  }
+  .note-box strong { color: var(--red); }
+
+  /* ─── DIVIDER ─── */
+  hr.soft { border: none; border-top: 1px solid var(--rule); margin: 18px 0; }
+
+  /* ─── FOOTER ─── */
+  .footer {
+    text-align: center;
+    font-size: 12px;
+    color: #b0a090;
+    margin-top: 48px;
+    padding-top: 18px;
+    border-top: 1px solid var(--rule);
+  }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-badge">উত্তরমালা · Answer Sheet</div>
+  <h1>ভূগোল ও পরিবেশ<br>ব্যবহারিক পরীক্ষা</h1>
+  <h2>Fieldwork in Human Geography — GELb: 3011</h2>
+  <div class="cover-meta">
+    <span><strong>কলেজ:</strong> ঢাকা কলেজ</span>
+    <span><strong>বর্ষ:</strong> ৩য় বর্ষ স্নাতক (সম্মান)</span>
+    <span><strong>পূর্ণমান:</strong> ৩০</span>
+    <span><strong>পরীক্ষা:</strong> ২০২১ ও ২০২৩</span>
+  </div>
+</div>
+
+<div class="container">
+
+<!-- ══════════════════════════════════════════
+     ২০২৩ সালের প্রশ্নোত্তর
+═══════════════════════════════════════════ -->
+<div class="year-divider">📋 ২০২৩ সালের উত্তরমালা</div>
+
+<!-- Q1 2023 -->
+<div class="q-block">
+  <div class="q-header">
+    <div class="q-num">১</div>
+    <div class="q-text">মাঠকর্মের সংজ্ঞা দাও। তোমার সমীক্ষা এলাকায় লক্ষ্য ও সীমাবদ্ধতাসমূহের বর্ণনা কর।</div>
+    <div class="q-marks">৬ নম্বর</div>
+  </div>
+  <div class="q-body">
+    <div class="section">
+      <div class="section-title">মাঠকর্মের সংজ্ঞা</div>
+      <div class="definition-box">
+        মাঠকর্ম (Fieldwork) হলো এমন একটি গবেষণা পদ্ধতি যেখানে গবেষক বা শিক্ষার্থী নিজে সরাসরি কোনো নির্দিষ্ট এলাকায় গিয়ে পর্যবেক্ষণ, সাক্ষাৎকার, প্রশ্নমালা ও পরিমাপের মাধ্যমে তথ্য সংগ্রহ করেন।
+      </div>
+      <p>মাঠকর্ম ভৌগোলিক গবেষণার মূল ভিত্তি। এটি শ্রেণিকক্ষের তাত্ত্বিক জ্ঞানকে বাস্তব অভিজ্ঞতার সাথে সংযুক্ত করে। <strong>J. R. Gold (১৯৯১)</strong> বলেছেন, মাঠকর্ম হলো সেই প্রক্রিয়া যার মাধ্যমে শিক্ষার্থীরা সরাসরি পরিবেশের সাথে মিথস্ক্রিয়া করে এবং ভৌগোলিক ঘটনার কারণ অনুসন্ধান করে।</p>
+    </div>
+
+    <hr class="soft">
+
+    <div class="section">
+      <div class="section-title">সমীক্ষা এলাকার লক্ষ্যসমূহ</div>
+      <ul class="numbered-list">
+        <li>এলাকার জনগোষ্ঠীর আর্থ-সামাজিক অবস্থা নির্ণয় করা।</li>
+        <li>পেশাগত বিন্যাস ও জীবনযাত্রার মান পর্যালোচনা করা।</li>
+        <li>প্রাথমিক ও মাধ্যমিক উপাত্তের মাধ্যমে এলাকার বৈশিষ্ট্য উদঘাটন করা।</li>
+        <li>ভৌগোলিক তথ্য মানচিত্রে ও চার্টে উপস্থাপন করার দক্ষতা অর্জন করা।</li>
+        <li>গবেষণা পদ্ধতি ও মাঠ জরিপের বাস্তব অভিজ্ঞতা অর্জন করা।</li>
+      </ul>
+    </div>
+
+    <hr class="soft">
+
+    <div class="section">
+      <div class="section-title">সীমাবদ্ধতাসমূহ</div>
+      <ul class="ans-list">
+        <li><strong>সময় ও অর্থের সীমাবদ্ধতা:</strong> মাঠকর্মে যথেষ্ট সময় ও অর্থ বরাদ্দ করা সম্ভব হয় না।</li>
+        <li><strong>তথ্যদাতার অসহযোগিতা:</strong> অনেক সময় উত্তরদাতারা সঠিক তথ্য দিতে অনিচ্ছুক থাকেন।</li>
+        <li><strong>নমুনা পক্ষপাতিত্ব:</strong> সীমিত নমুনা থেকে পূর্ণ চিত্র পাওয়া সম্ভব নয়।</li>
+        <li><strong>আবহাওয়া ও যোগাযোগ সমস্যা:</strong> প্রতিকূল আবহাওয়া ও যোগাযোগ সমস্যা কাজে বাধা সৃষ্টি করে।</li>
+        <li><strong>ভাষাগত সমস্যা:</strong> স্থানীয় উপভাষা বোঝার ক্ষেত্রে জটিলতা সৃষ্টি হতে পারে।</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Q2 2023 -->
+<div class="q-block">
+  <div class="q-header">
+    <div class="q-num">২</div>
+    <div class="q-text">প্রশ্নমালা জরিপ কী? আর্থ-সামাজিক জরিপে প্রশ্নমালার গুরুত্ব লিখ।</div>
+    <div class="q-marks">৬ নম্বর</div>
+  </div>
+  <div class="q-body">
+    <div class="section">
+      <div class="section-title">প্রশ্নমালা জরিপের সংজ্ঞা</div>
+      <div class="definition-box">
+        প্রশ্নমালা জরিপ (Questionnaire Survey) হলো একটি কাঠামোগত তথ্য সংগ্রহ পদ্ধতি যেখানে পূর্বনির্ধারিত প্রশ্নের একটি তালিকা তৈরি করে উত্তরদাতাদের কাছ থেকে লিখিত বা মৌখিকভাবে তথ্য সংগ্রহ করা হয়।
+      </div>
+      <p>প্রশ্নমালায় সাধারণত বদ্ধ (Closed-ended) ও মুক্ত (Open-ended) প্রশ্ন থাকে। এটি পরিমাণগত ও গুণগত উভয় তথ্য সংগ্রহের সুযোগ দেয়।</p>
+    </div>
+
+    <hr class="soft">
+
+    <div class="section">
+      <div class="section-title">আর্থ-সামাজিক জরিপে প্রশ্নমালার গুরুত্ব</div>
+      <ul class="numbered-list">
+        <li><strong>তথ্যের মানকীকরণ:</strong> একই প্রশ্নের মাধ্যমে বিভিন্ন ব্যক্তির কাছ থেকে তুলনীয় তথ্য সংগ্রহ সম্ভব হয়।</li>
+        <li><strong>বৃহৎ নমুনা পরিচালনা:</strong> স্বল্প সময়ে বড় জনগোষ্ঠী থেকে তথ্য সংগ্রহ করা যায়।</li>
+        <li><strong>গোপনীয়তা রক্ষা:</strong> উত্তরদাতা নিজে পূরণ করলে সংবেদনশীল তথ্য পাওয়া সহজ হয়।</li>
+        <li><strong>বিশ্লেষণের সুবিধা:</strong> কাঠামোগত উপাত্ত পরিসংখ্যানগত বিশ্লেষণের জন্য উপযুক্ত।</li>
+        <li><strong>পক্ষপাত হ্রাস:</strong> গবেষকের প্রভাব কমানো সম্ভব হয়।</li>
+        <li><strong>আর্থ-সামাজিক সূচক নির্ণয়:</strong> আয়, শিক্ষা, পেশা, বাসস্থানের তথ্য পদ্ধতিগতভাবে পাওয়া যায়।</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Q3 2023 -->
+<div class="q-block">
+  <div class="q-header">
+    <div class="q-num">৩</div>
+    <div class="q-text">ভৌগলিক গবেষণায় মাঠ জরিপের গুরুত্ব ব্যাখ্যা কর।</div>
+    <div class="q-marks">৬ নম্বর</div>
+  </div>
+  <div class="q-body">
+    <div class="section">
+      <div class="section-title">ভূমিকা</div>
+      <p>ভৌগোলিক গবেষণায় মাঠ জরিপ (Field Survey) একটি অপরিহার্য পদ্ধতি। মানচিত্র, পরিসংখ্যান বা দ্বিতীয় সূত্রের তথ্য যা বলতে পারে না, মাঠ জরিপ সরাসরি বাস্তবতার সাথে পরিচয় করিয়ে দেয়।</p>
+    </div>
+
+    <div class="section">
+      <div class="section-title">মাঠ জরিপের গুরুত্বসমূহ</div>
+      <ul class="numbered-list">
+        <li><strong>প্রাথমিক তথ্য সংগ্রহ:</strong> গবেষক সরাসরি মাঠে গিয়ে নির্ভরযোগ্য প্রথম হাতের তথ্য সংগ্রহ করতে পারেন।</li>
+        <li><strong>তাত্ত্বিক যাচাই:</strong> ভৌগোলিক তত্ত্ব ও মডেল বাস্তব ক্ষেত্রে পরীক্ষা ও যাচাই করা সম্ভব হয়।</li>
+        <li><strong>স্থানিক বৈচিত্র্য উপলব্ধি:</strong> বিভিন্ন অঞ্চলের ভৌত ও মানবিক পরিবেশের পার্থক্য সরাসরি পর্যবেক্ষণ করা যায়।</li>
+        <li><strong>মানচিত্র প্রণয়নে সহায়তা:</strong> মাঠ জরিপের তথ্য সঠিক মানচিত্র তৈরিতে অপরিহার্য।</li>
+        <li><strong>পরিবেশ পরিবর্তন পর্যবেক্ষণ:</strong> ভূমি ব্যবহার পরিবর্তন, নগরায়ণ, প্রাকৃতিক দুর্যোগের প্রভাব প্রত্যক্ষভাবে পর্যবেক্ষণ করা যায়।</li>
+        <li><strong>পরিকল্পনায় সহায়তা:</strong> উন্নয়ন পরিকল্পনা প্রণয়নে মাঠ জরিপের তথ্য বিশেষভাবে কার্যকর।</li>
+        <li><strong>দক্ষতা উন্নয়ন:</strong> মাঠ জরিপের মাধ্যমে শিক্ষার্থীরা পর্যবেক্ষণ, পরিমাপ ও বিশ্লেষণের বাস্তব দক্ষতা অর্জন করেন।</li>
+      </ul>
+    </div>
+
+    <div class="note-box">
+      <strong>উপসংহার:</strong> মাঠ জরিপ ভৌগোলিক গবেষণাকে বাস্তবভিত্তিক, নির্ভরযোগ্য ও প্রয়োগমুখী করে তোলে। এটি ছাড়া ভূগোলের পূর্ণাঙ্গ গবেষণা সম্ভব নয়।
+    </div>
+  </div>
+</div>
+
+<!-- Q4 2023 -->
+<div class="q-block">
+  <div class="q-header">
+    <div class="q-num">৪</div>
+    <div class="q-text">গবেষণা পদ্ধতি বলতে কী বুঝ? ব্যাখ্যা কর।</div>
+    <div class="q-marks">৬ নম্বর</div>
+  </div>
+  <div class="q-body">
+    <div class="section">
+      <div class="section-title">গবেষণা পদ্ধতির সংজ্ঞা</div>
+      <div class="definition-box">
+        গবেষণা পদ্ধতি (Research Methodology) হলো কোনো গবেষণা সমস্যা সমাধানের জন্য তথ্য সংগ্রহ, বিশ্লেষণ ও উপস্থাপনায় ব্যবহৃত সুশৃঙ্খল ও বৈজ্ঞানিক পদ্ধতির সমষ্টি।
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">গবেষণা পদ্ধতির প্রকারভেদ</div>
+      <ul class="ans-list">
+        <li><strong>পরিমাণগত পদ্ধতি (Quantitative Method):</strong> সংখ্যাভিত্তিক তথ্য সংগ্রহ ও পরিসংখ্যানগত বিশ্লেষণ।</li>
+        <li><strong>গুণগত পদ্ধতি (Qualitative Method):</strong> সাক্ষাৎকার, পর্যবেক্ষণ ও কেস স্টাডির মাধ্যমে গভীর তথ্য সংগ্রহ।</li>
+        <li><strong>মিশ্র পদ্ধতি (Mixed Method):</strong> পরিমাণগত ও গুণগত উভয় পদ্ধতির সমন্বয়।</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <div class="section-title">গবেষণা পদ্ধতির ধাপসমূহ</div>
+      <ul class="numbered-list">
+        <li><strong>সমস্যা চিহ্নিতকরণ:</strong> গবেষণার বিষয়বস্তু ও প্রশ্ন নির্ধারণ।</li>
+        <li><strong>উদ্দেশ্য নির্ধারণ:</strong> গবেষণার লক্ষ্য ও উদ্দেশ্য স্পষ্ট করা।</li>
+        <li><strong>সাহিত্য পর্যালোচনা:</strong> পূর্ববর্তী গবেষণা পর্যালোচনা।</li>
+        <li><strong>গবেষণা নকশা প্রণয়ন:</strong> পদ্ধতি, নমুনায়ন, হাতিয়ার নির্বাচন।</li>
+        <li><strong>তথ্য সংগ্রহ:</strong> মাঠকর্ম, প্রশ্নমালা, সাক্ষাৎকার ইত্যাদির মাধ্যমে।</li>
+        <li><strong>তথ্য বিশ্লেষণ ও উপস্থাপন:</strong> সারণি, গ্রাফ, মানচিত্রে তথ্য প্রদর্শন।</li>
+        <li><strong>প্রতিবেদন রচনা:</strong> গবেষণার ফলাফল লিখিতভাবে উপস্থাপন।</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Q5 2023 -->
+<div class="q-block">
+  <div class="q-header">
+    <div class="q-num">৫</div>
+    <div class="q-text">মাঠ কৌশল বলতে কী বুঝ? মাঠ কৌশলের পর্যায়সমূহ লিখ।</div>
+    <div class="q-marks">৬ নম্বর</div>
+  </div>
+  <div class="q-body">
+    <div class="section">
+      <div class="section-title">মাঠ কৌশলের সংজ্ঞা</div>
+      <div class="definition-box">
+        মাঠ কৌশল (Field Technique) বলতে মাঠকর্মে তথ্য সংগ্রহের জন্য ব্যবহৃত সুনির্দিষ্ট পদ্ধতি ও কৌশলগুলোর সমন্বিত রূপকে বোঝায়। এতে পর্যবেক্ষণ, পরিমাপ, সাক্ষাৎকার ও প্রশ্নমালা অন্তর্ভুক্ত থাকে।
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">মাঠ কৌশলের পর্যায়সমূহ</div>
+      <ul class="numbered-list">
+        <li><strong>প্রস্তুতিমূলক পর্যায় (Pre-field Stage):</strong> গবেষণার উদ্দেশ্য নির্ধারণ, পূর্ববর্তী তথ্য সংগ্রহ, প্রশ্নমালা তৈরি ও মানচিত্র প্রস্তুতি।</li>
+        <li><strong>মাঠ পর্যায় (Field Stage):</strong> নমুনা নির্বাচন, সাক্ষাৎকার গ্রহণ, পর্যবেক্ষণ ও পরিমাপ করা এবং তথ্য রেকর্ড করা।</li>
+        <li><strong>তথ্য প্রক্রিয়াকরণ পর্যায় (Data Processing Stage):</strong> সংগৃহীত তথ্য সম্পাদনা, শ্রেণিবিভাগ ও পরিসংখ্যানগত বিশ্লেষণ।</li>
+        <li><strong>উপস্থাপনা পর্যায় (Presentation Stage):</strong> সারণি, গ্রাফ, পাই চার্ট, মানচিত্রের সাহায্যে তথ্য উপস্থাপন।</li>
+        <li><strong>প্রতিবেদন রচনা পর্যায় (Report Writing Stage):</strong> সমগ্র গবেষণার ফলাফল ও সুপারিশ সম্বলিত প্রতিবেদন তৈরি।</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Q6 2023 -->
+<div class="q-block">
+  <div class="q-header">
+    <div class="q-num">৬</div>
+    <div class="q-text">তথ্য ও উপাত্ত কাকে বলে? আর্থ-সামাজিক জরিপের তথ্য প্রক্রিয়াকরণ পদ্ধতি আলোচনা কর।</div>
+    <div class="q-marks">৬ নম্বর</div>
+  </div>
+  <div class="q-body">
+    <div class="section">
+      <div class="section-title">তথ্য ও উপাত্তের সংজ্ঞা</div>
+      <p><strong>উপাত্ত (Data):</strong> উপাত্ত হলো কাঁচামাল — মাঠ থেকে সংগৃহীত বিক্ষিপ্ত সংখ্যা, ঘটনা বা পর্যবেক্ষণ। উদাহরণ: ব্যক্তির বয়স, আয়, পেশা।</p>
+      <p><strong>তথ্য (Information):</strong> তথ্য হলো প্রক্রিয়াকৃত উপাত্ত — যা বিশ্লেষণের পর অর্থবহ ফলাফলে পরিণত হয়।</p>
+    </div>
+
+    <hr class="soft">
+
+    <div class="section">
+      <div class="section-title">আর্থ-সামাজিক জরিপের তথ্য প্রক্রিয়াকরণ পদ্ধতি</div>
+      <ul class="numbered-list">
+        <li><strong>সম্পাদনা (Editing):</strong> সংগৃহীত তথ্যের ত্রুটি, বাদ পড়া উত্তর ও অসংগতি চিহ্নিত করে সংশোধন করা।</li>
+        <li><strong>শ্রেণিবিভাগ (Classification):</strong> তথ্যকে বৈশিষ্ট্য অনুযায়ী বিভিন্ন শ্রেণিতে ভাগ করা (যেমন: পেশা, লিঙ্গ, বয়স)।</li>
+        <li><strong>সংকেতায়ন (Coding):</strong> প্রতিটি শ্রেণিকে সংখ্যাসূচক কোড দেওয়া, যা কম্পিউটার বিশ্লেষণকে সহজ করে।</li>
+        <li><strong>সারণিবদ্ধকরণ (Tabulation):</strong> তথ্য সুশৃঙ্খল সারণিতে উপস্থাপন করা।</li>
+        <li><strong>পরিসংখ্যানগত বিশ্লেষণ (Statistical Analysis):</strong> গড়, মধ্যমান, শতকরা হার ও সম্পর্কসূচক পরিসংখ্যান হিসাব করা।</li>
+        <li><strong>গ্রাফিক্যাল উপস্থাপন (Graphical Presentation):</strong> বার চার্ট, পাই চার্ট, হিস্টোগ্রামের মাধ্যমে দৃশ্যমান উপস্থাপন।</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Q7 2023 — Data Visualization -->
+<div class="q-block">
+  <div class="q-header">
+    <div class="q-num">৭</div>
+    <div class="q-text">নেত্রকোনার বিজয়পুরের স্থানীয় অধিবাসীদের পেশাগত তথ্যসমূহ উপযুক্ত পদ্ধতিতে উপস্থাপন কর।</div>
+    <div class="q-marks">৬ নম্বর</div>
+  </div>
+  <div class="q-body">
+
+    <div class="section">
+      <div class="section-title">পেশাগত তথ্য সারণি</div>
+      <table class="data-table">
+        <thead>
+          <tr><th>পেশা</th><th>শতকরা (%)</th><th>আনুপাতিক বার</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>গৃহিণী</td>
+            <td><strong>৩৯%</strong></td>
+            <td><div class="pct-bar"><div class="pct-bar-fill" style="width:100%"></div></div></td>
+          </tr>
+          <tr>
+            <td>কৃষি</td>
+            <td><strong>২৫%</strong></td>
+            <td><div class="pct-bar"><div class="pct-bar-fill" style="width:64%"></div></div></td>
+          </tr>
+          <tr>
+            <td>অন্যান্য</td>
+            <td><strong>১০%</strong></td>
+            <td><div class="pct-bar"><div class="pct-bar-fill" style="width:26%"></div></div></td>
+          </tr>
+          <tr>
+            <td>শ্রমিক</td>
+            <td><strong>১৫%</strong></td>
+            <td><div class="pct-bar"><div class="pct-bar-fill" style="width:38%"></div></div></td>
+          </tr>
+          <tr>
+            <td>ব্যবসায়ী</td>
+            <td><strong>৮%</strong></td>
+            <td><div class="pct-bar"><div class="pct-bar-fill" style="width:21%"></div></div></td>
+          </tr>
+          <tr>
+            <td>চাকুরিজীবী</td>
+            <td><strong>৩%</strong></td>
+            <td><div class="pct-bar"><div class="pct-bar-fill" style="width:8%"></div></div></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="section">
+      <div class="section-title">পাই চার্ট (বৃত্তচিত্র)</div>
+      <div class="chart-wrap">
+        <svg width="200" height="200" viewBox="0 0 200 200">
+          <!-- গৃহিণী 39% = 140.4° -->
+          <path d="M100,100 L100,10 A90,90 0 0,1 190,100 Z" fill="#4a7c59"/>
+          <!-- কৃষি 25% = 90° -->
+          <path d="M100,100 L190,100 A90,90 0 0,1 100,190 Z" fill="#c8a96e"/>
+          <!-- শ্রমিক 15% = 54° -->
+          <path d="M100,100 L100,190 A90,90 0 0,1 27.7,163.6 Z" fill="#8b2e2e"/>
+          <!-- অন্যান্য 10% = 36° -->
+          <path d="M100,100 L27.7,163.6 A90,90 0 0,1 13.8,86.4 Z" fill="#16213e"/>
+          <!-- ব্যবসায়ী 8% = 28.8° -->
+          <path d="M100,100 L13.8,86.4 A90,90 0 0,1 36.0,35.6 Z" fill="#d4b896"/>
+          <!-- চাকুরিজীবী 3% = 10.8° -->
+          <path d="M100,100 L36.0,35.6 A90,90 0 0,1 100,10 Z" fill="#7a6652"/>
+          <circle cx="100" cy="100" r="35" fill="white"/>
+          <text x="100" y="96" text-anchor="middle" font-size="11" fill="#1a1a2e" font-weight="bold">বিজয়পুর</text>
+          <text x="100" y="110" text-anchor="middle" font-size="10" fill="#7a6652">পেশা</text>
+        </svg>
+        <div class="legend">
+          <div class="legend-item"><div class="legend-dot" style="background:#4a7c59"></div> গৃহিণী — ৩৯%</div>
+          <div class="legend-item"><div class="legend-dot" style="background:#c8a96e"></div> কৃষি — ২৫%</div>
+          <div class="legend-item"><div class="legend-dot" style="background:#8b2e2e"></div> শ্রমিক — ১৫%</div>
+          <div class="legend-item"><div class="legend-dot" style="background:#16213e"></div> অন্যান্য — ১০%</div>
+          <div class="legend-item"><div class="legend-dot" style="background:#d4b896"></div> ব্যবসায়ী — ৮%</div>
+          <div class="legend-item"><div class="legend-dot" style="background:#7a6652"></div> চাকুরিজীবী — ৩%</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">বার চার্ট (দণ্ড লেখচিত্র)</div>
+      <div class="bar-chart">
+        <div class="bar-row">
+          <div class="bar-label">গৃহিণী</div>
+          <div class="bar-track"><div class="bar-fill" style="width:78%;background:linear-gradient(90deg,#4a7c59,#6aaa7a)">৩৯%</div></div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">কৃষি</div>
+          <div class="bar-track"><div class="bar-fill" style="width:50%;background:linear-gradient(90deg,#c8a96e,#e8c99e)">২৫%</div></div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">শ্রমিক</div>
+          <div class="bar-track"><div class="bar-fill" style="width:30%;background:linear-gradient(90deg,#8b2e2e,#b05050)">১৫%</div></div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">অন্যান্য</div>
+          <div class="bar-track"><div class="bar-fill" style="width:20%;background:linear-gradient(90deg,#555,#888)">১০%</div></div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">ব্যবসায়ী</div>
+          <div class="bar-track"><div class="bar-fill" style="width:16%;background:linear-gradient(90deg,#a07040,#c09060)">৮%</div></div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">চাকুরিজীবী</div>
+          <div class="bar-track"><div class="bar-fill" style="width:6%;background:linear-gradient(90deg,#16213e,#2a4070)">৩%</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="note-box">
+      <strong>বিশ্লেষণ:</strong> বিজয়পুরের অধিবাসীদের মধ্যে সর্বোচ্চ ৩৯% গৃহিণী, যা নারীর গৃহনির্ভরতা প্রকাশ করে। কৃষি ২৫% নিয়ে দ্বিতীয় স্থানে রয়েছে, যা এলাকার কৃষিনির্ভর অর্থনীতির প্রমাণ। শিক্ষিত চাকুরিজীবীর হার মাত্র ৩%, যা শিক্ষা ও কর্মসংস্থানের সীমাবদ্ধতা নির্দেশ করে।
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════
+     ২০২১ সালের প্রশ্নোত্তর
+═══════════════════════════════════════════ -->
+<div class="year-divider">📋 ২০২১ সালের উত্তরমালা</div>
+
+<!-- Q2 2021 -->
+<div class="q-block">
+  <div class="q-header">
+    <div class="q-num">২</div>
+    <div class="q-text">আর্থ-সামাজিক জরিপ কাকে বলে? আর্থ-সামাজিক জরিপের পর্যায়সমূহ উল্লেখ কর।</div>
+    <div class="q-marks">৬ নম্বর</div>
+  </div>
+  <div class="q-body">
+    <div class="section">
+      <div class="section-title">আর্থ-সামাজিক জরিপের সংজ্ঞা</div>
+      <div class="definition-box">
+        আর্থ-সামাজিক জরিপ (Socio-economic Survey) হলো একটি পদ্ধতিগত অনুসন্ধান প্রক্রিয়া যার মাধ্যমে কোনো নির্দিষ্ট জনগোষ্ঠীর আয়, পেশা, শিক্ষা, স্বাস্থ্য, বাসস্থান ও সামাজিক অবস্থানের তথ্য সংগ্রহ এবং বিশ্লেষণ করা হয়।
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">আর্থ-সামাজিক জরিপের পর্যায়সমূহ</div>
+      <ul class="numbered-list">
+        <li><strong>উদ্দেশ্য নির্ধারণ পর্যায়:</strong> জরিপের লক্ষ্য, সুযোগ ও সীমাবদ্ধতা নির্ধারণ করা।</li>
+        <li><strong>এলাকা ও নমুনা নির্বাচন পর্যায়:</strong> জরিপ এলাকা চিহ্নিত করা এবং নমুনায়ন পদ্ধতি (র‍্যান্ডম, স্তরিত) নির্বাচন।</li>
+        <li><strong>হাতিয়ার প্রস্তুতি পর্যায়:</strong> প্রশ্নমালা, সাক্ষাৎকার তালিকা ও পর্যবেক্ষণ ছক তৈরি করা।</li>
+        <li><strong>তথ্য সংগ্রহ পর্যায়:</strong> সরাসরি সাক্ষাৎকার, প্রশ্নমালা বিতরণ ও সংগ্রহ।</li>
+        <li><strong>তথ্য প্রক্রিয়াকরণ পর্যায়:</strong> সম্পাদনা, শ্রেণিবিভাগ, কোডিং ও সারণিবদ্ধকরণ।</li>
+        <li><strong>বিশ্লেষণ ও ব্যাখ্যা পর্যায়:</strong> পরিসংখ্যানগত বিশ্লেষণ ও ফলাফলের ব্যাখ্যা।</li>
+        <li><strong>প্রতিবেদন রচনা পর্যায়:</strong> সুপারিশ সহ চূড়ান্ত প্রতিবেদন তৈরি ও উপস্থাপন।</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Q4 2021 -->
+<div class="q-block">
+  <div class="q-header">
+    <div class="q-num">৪</div>
+    <div class="q-text">জরিপের প্রতিবেদন উপস্থাপনের পদ্ধতি উল্লেখ কর।</div>
+    <div class="q-marks">৬ নম্বর</div>
+  </div>
+  <div class="q-body">
+    <div class="section">
+      <div class="section-title">প্রতিবেদন উপস্থাপনের পদ্ধতিসমূহ</div>
+      <ul class="numbered-list">
+        <li><strong>লিখিত প্রতিবেদন (Written Report):</strong> গবেষণার ভূমিকা, পদ্ধতি, ফলাফল ও সুপারিশ সম্বলিত বিস্তারিত লিখিত দলিল।</li>
+        <li><strong>সারণি (Table):</strong> তথ্যকে সারি ও স্তম্ভে সাজিয়ে তুলনামূলক উপস্থাপন।</li>
+        <li><strong>বার চার্ট (Bar Chart):</strong> বিভিন্ন শ্রেণির তথ্য দণ্ডলেখ আকারে প্রকাশ।</li>
+        <li><strong>পাই চার্ট (Pie Chart):</strong> শতকরা হার বৃত্তের অংশে প্রকাশ।</li>
+        <li><strong>রেখাচিত্র (Line Graph):</strong> সময় অনুযায়ী পরিবর্তনের ধারা দেখানো।</li>
+        <li><strong>মানচিত্র (Map):</strong> স্থানিক বিতরণ ও প্যাটার্ন উপস্থাপন।</li>
+        <li><strong>মৌখিক উপস্থাপন (Oral Presentation):</strong> স্লাইড ও ভিজ্যুয়াল এইডসহ মৌখিকভাবে ফলাফল তুলে ধরা।</li>
+      </ul>
+    </div>
+
+    <div class="note-box">
+      <strong>সেরা অনুশীলন:</strong> একটি সম্পূর্ণ প্রতিবেদনে লিখিত বিশ্লেষণ, সারণি ও চার্টের সমন্বয় করা হলে তথ্য সবচেয়ে কার্যকরভাবে পাঠকের কাছে পৌঁছায়।
+    </div>
+  </div>
+</div>
+
+<!-- Q7 2021 — Data Visualization -->
+<div class="q-block">
+  <div class="q-header">
+    <div class="q-num">৭</div>
+    <div class="q-text">শ্রীমঙ্গলের চা শ্রমিকদের নৃতাত্ত্বিক পরিচয়ের তথ্যসমূহ উপযুক্ত পদ্ধতিতে উপস্থাপন কর।</div>
+    <div class="q-marks">৬ নম্বর</div>
+  </div>
+  <div class="q-body">
+
+    <div class="section">
+      <div class="section-title">নৃতাত্ত্বিক পরিচয় সারণি</div>
+      <table class="data-table">
+        <thead>
+          <tr><th>নৃতাত্ত্বিক পরিচয়</th><th>পরিবার (%)</th><th>আনুপাতিক বার</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>তেলেগু</td>
+            <td><strong>৪৫%</strong></td>
+            <td><div class="pct-bar"><div class="pct-bar-fill" style="width:100%"></div></div></td>
+          </tr>
+          <tr>
+            <td>বিহারী</td>
+            <td><strong>৩০%</strong></td>
+            <td><div class="pct-bar"><div class="pct-bar-fill" style="width:67%"></div></div></td>
+          </tr>
+          <tr>
+            <td>বাঙালি</td>
+            <td><strong>১৫%</strong></td>
+            <td><div class="pct-bar"><div class="pct-bar-fill" style="width:33%"></div></div></td>
+          </tr>
+          <tr>
+            <td>ত্রিপুরা</td>
+            <td><strong>১০%</strong></td>
+            <td><div class="pct-bar"><div class="pct-bar-fill" style="width:22%"></div></div></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="section">
+      <div class="section-title">পাই চার্ট (বৃত্তচিত্র)</div>
+      <div class="chart-wrap">
+        <svg width="200" height="200" viewBox="0 0 200 200">
+          <!-- তেলেগু 45% = 162° -->
+          <path d="M100,100 L100,10 A90,90 0 0,1 185.4,154.5 Z" fill="#4a7c59"/>
+          <!-- বিহারী 30% = 108° -->
+          <path d="M100,100 L185.4,154.5 A90,90 0 0,1 22.3,140.0 Z" fill="#c8a96e"/>
+          <!-- বাঙালি 15% = 54° -->
+          <path d="M100,100 L22.3,140.0 A90,90 0 0,1 55.6,22.5 Z" fill="#8b2e2e"/>
+          <!-- ত্রিপুরা 10% = 36° -->
+          <path d="M100,100 L55.6,22.5 A90,90 0 0,1 100,10 Z" fill="#16213e"/>
+          <circle cx="100" cy="100" r="35" fill="white"/>
+          <text x="100" y="96" text-anchor="middle" font-size="10" fill="#1a1a2e" font-weight="bold">শ্রীমঙ্গল</text>
+          <text x="100" y="110" text-anchor="middle" font-size="10" fill="#7a6652">চা শ্রমিক</text>
+        </svg>
+        <div class="legend">
+          <div class="legend-item"><div class="legend-dot" style="background:#4a7c59"></div> তেলেগু — ৪৫%</div>
+          <div class="legend-item"><div class="legend-dot" style="background:#c8a96e"></div> বিহারী — ৩০%</div>
+          <div class="legend-item"><div class="legend-dot" style="background:#8b2e2e"></div> বাঙালি — ১৫%</div>
+          <div class="legend-item"><div class="legend-dot" style="background:#16213e"></div> ত্রিপুরা — ১০%</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">বার চার্ট (দণ্ড লেখচিত্র)</div>
+      <div class="bar-chart">
+        <div class="bar-row">
+          <div class="bar-label">তেলেগু</div>
+          <div class="bar-track"><div class="bar-fill" style="width:90%;background:linear-gradient(90deg,#4a7c59,#6aaa7a)">৪৫%</div></div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">বিহারী</div>
+          <div class="bar-track"><div class="bar-fill" style="width:60%;background:linear-gradient(90deg,#c8a96e,#e8c99e)">৩০%</div></div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">বাঙালি</div>
+          <div class="bar-track"><div class="bar-fill" style="width:30%;background:linear-gradient(90deg,#8b2e2e,#b05050)">১৫%</div></div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">ত্রিপুরা</div>
+          <div class="bar-track"><div class="bar-fill" style="width:20%;background:linear-gradient(90deg,#16213e,#2a4070)">১০%</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="note-box">
+      <strong>বিশ্লেষণ:</strong> শ্রীমঙ্গলের চা বাগানে তেলেগু জনগোষ্ঠী সর্বোচ্চ ৪৫% — এটি ব্রিটিশ আমলে দক্ষিণ ভারত থেকে আনা শ্রমিকদের উত্তরসূরিদের উপস্থিতি প্রমাণ করে। বিহারী ৩০%, বাঙালি ১৫% এবং ত্রিপুরা ১০% নিয়ে চা বাগানের বহুজাতিক সংস্কৃতি গড়ে উঠেছে।
+    </div>
+
+  </div>
+</div>
+
+<div class="footer">
+  ভূগোল ও পরিবেশ — GELb: 3011 | ঢাকা কলেজ | ৩য় বর্ষ সম্মান ব্যবহারিক পরীক্ষা ২০২১ ও ২০২৩
+</div>
+
+</div><!-- /container -->
+</body>
+</html>
